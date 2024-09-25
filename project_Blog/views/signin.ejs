@@ -4,7 +4,7 @@
 <head>
 
     <%- include('./partials/head.ejs') %>
-        <title>Signup</title>
+        <title>signin</title>
 </head>
 <style>
     .form-container {
@@ -31,11 +31,7 @@
     <%- include('./partials/nav.ejs')%>
         <div class="container form-container">
             <div class="form-box">
-                <form action="/user/signup" method="post">
-                    <div class="mb-3">
-                        <label for="fullname" class="form-label">FullName</label>
-                        <input type="text" class="form-control" id="fullName" name="fullName">
-                    </div>
+                <form action="/user/signin" method="post">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" name="email"
