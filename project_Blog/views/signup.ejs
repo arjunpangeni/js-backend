@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include('./partials/head.ejs') %>
+        <title>Signup</title>
+</head>
+<style>
+    .form-container {
+        min-height: 100vh;
+        /* Full viewport height */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form-box {
+        background-color: #343a40;
+        /* Dark background */
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+    }
+</style>
+
+
+<body class="bg-dark text-light">
+    <%- include('./partials/nav.ejs')%>
+        <div class="container form-container">
+            <div class="form-box">
+                <form>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                </form>
+            </div>
+        </div>
+
+
+        <%- include('./partials/script.ejs') %>
+</body>
+
+</html>
