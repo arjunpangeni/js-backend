@@ -2,14 +2,13 @@
 <html lang="en">
 
 <head>
-
     <%- include('./partials/head.ejs') %>
-        <title>signin</title>
+        <title>Sign In</title>
 </head>
+
 <style>
     .form-container {
         min-height: 100vh;
-        /* Full viewport height */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -17,7 +16,6 @@
 
     .form-box {
         background-color: #343a40;
-        /* Dark background */
         padding: 30px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -26,27 +24,32 @@
     }
 </style>
 
-
 <body class="bg-dark text-light">
-    <%- include('./partials/nav.ejs')%>
+    <%- include('./partials/nav.ejs') %>
+
         <div class="container form-container">
             <div class="form-box">
-                <form action="/user/signin" method="post">
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" name="email"
-                            aria-describedby="emailHelp">
+                <!-- Display error message if exists -->
+                <% if(locals.error){ %>
+                    <div class="alert alert-success" role=" alert">
+                        <%=locals.error %>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" name="password">
-                    </div>
+                    <%}%>
+                        <form action="/user/signin" method="post">
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" name="email"
+                                    aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                            </div>
 
-                    <button type="submit" class="btn btn-primary w-100">Submit</button>
-                </form>
+                            <button type="submit" class="btn btn-primary w-100">Submit</button>
+                        </form>
             </div>
         </div>
-
 
         <%- include('./partials/script.ejs') %>
 </body>

@@ -2,17 +2,22 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const dbConnect = require('./db/connection')
+const cookieParser = require('cookie-parser')
 
 const userRoute = require('./routes/user.router')
+const { checkForAuthTokenCookie } = require('./middlewares/userAuth')
 
 app.set('view engine', 'ejs')
 app.set('views', path.resolve('./views'));
 app.use(express.urlencoded({ extended: false }))
-
+app.use(cookieParser())
 app.use('/user', userRoute)
+app.use(checkForAuthTokenCookie('token'))
 
 app.get('/', (req, res) => {
-    res.render('home')
+    res.render('home', {
+        user: req.user
+    })
 })
 
 dbConnect()

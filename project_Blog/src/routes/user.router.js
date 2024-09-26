@@ -18,23 +18,21 @@ router.post('/signin', async (req, res) => {
         const { email, password } = req.body;
 
         // Assuming `User.matchPassword` checks email and compares password
-        const user = await User.matchPassword(email, password);
+        const token = await User.matchPasswordAndGenerateToken(email, password);
 
-        if (!user) {
+        if (!token) {
             // If user is not found or password is incorrect
-            console.log('Incorrect email or password');
-            return res.redirect('/?error=invalid_credentials'); // Redirect with error query
+            console.log('token is not generate');
         }
-
-        console.log("User logged in:", user);
-
         // Redirect to homepage or dashboard upon successful login
-        res.redirect('/');
+        return res.cookie('token', token).redirect('/')
     } catch (error) {
         console.error("Error during signin:", error);
 
         // Redirect to the homepage with a generic error
-        res.redirect('/?error=signin_error');
+        return res.render('signin', {
+            error: 'Invalid email or password',
+        })
     }
 });
 
@@ -60,5 +58,8 @@ router.post('/signup', async (req, res) => {
     }
 });
 
+router.get('/logout', (req, res) => {
+    res.clearCookie('token').redirect('/')
+})
 
 module.exports = router
