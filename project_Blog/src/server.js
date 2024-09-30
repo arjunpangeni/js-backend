@@ -29,3 +29,8 @@ dbConnect()
     .catch((error) => {
         console.log('error found at listening app :', error)
     })
+
+
+
+
+/// we should always connect db as async task 
