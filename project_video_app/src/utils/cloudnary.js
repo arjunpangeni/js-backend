@@ -50,7 +50,8 @@ const uploadOnCloudinary = async (localFilePath) => {
     } catch (error) {
         console.error('Error during upload or transformation:', error);
         fs.unlinkSync(localFilePath); // Remove locally saved temp file as the upload operation failed
-        return null;
+        return null
+            ;
     }
 };
 
