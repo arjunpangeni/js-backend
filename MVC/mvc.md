@@ -121,3 +121,11 @@ module.exports = router;
 ```
 
 In this setup, Express.js handles the backend, adhering to the MVC pattern, while React handles the frontend, acting as the "View" in this architecture.
+
+there are several models used for different propose. which may be different as requirement of project.   
+
+ngix,
+reverse proxy
+load balance 
+docor
+container 
