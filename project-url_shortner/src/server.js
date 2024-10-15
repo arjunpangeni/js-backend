@@ -51,5 +51,5 @@ dbConnect()
         console.log('error found at listening app :', error)
     })
 
-
+console.log("server is running on port 8000")
 
